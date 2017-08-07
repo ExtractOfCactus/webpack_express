@@ -29,4 +29,13 @@ filmsRouter.delete('/:id', function(req, res) {
   res.json({data: films});
 });
 
+filmsRouter.get('/:id/reviews', function(req, res) {
+  res.json({data: films[req.params.id].reviews});
+})
+
+filmsRouter.post('/:id/reviews', function(req, res) {
+  films[req.params.id].reviews.push(req.body);
+  res.json({data: films});
+})
+
 module.exports = filmsRouter;
